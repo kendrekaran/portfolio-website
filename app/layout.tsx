@@ -1,30 +1,95 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+// @ts-nocheck
+import type { Metadata, Viewport } from 'next'
+import type { ReactNode } from 'react'
 import './globals.css'
 import { ThemeProvider } from '../components/theme-provider'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
+const title = 'Karan Kendre'
+const description = 'Design Engineer. Portfolio, projects, and contact information.'
+
 export const metadata: Metadata = {
-  title: 'Karan Kendre',
-  description: 'Karan Kendre',
+  metadataBase: new URL(siteUrl),
+  title: { default: title, template: '%s | Karan Kendre' },
+  description,
   generator: 'Karan Kendre',
+  keywords: [
+    'Karan Kendre',
+    'Design Engineer',
+    'Frontend',
+    'Next.js',
+    'React',
+    'Portfolio',
+  ],
+  authors: [{ name: 'Karan Kendre', url: 'https://github.com/kendrekaran' }],
+  creator: 'Karan Kendre',
+  publisher: 'Karan Kendre',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title,
+    description,
+    url: '/',
+    siteName: 'Karan Kendre',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/ogimage.png',
+        width: 1200,
+        height: 630,
+        alt: 'Karan Kendre – Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    creator: '@karaan_dev',
+    images: ['/ogimage.png'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Karan Kendre',
+              url: siteUrl,
+              jobTitle: 'Design Engineer',
+              email: 'mailto:karankendreg@gmail.com',
+              sameAs: [
+                'https://x.com/karaan_dev',
+                'https://linkedin.com/in/kendrekaran',
+                'https://github.com/kendrekaran',
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

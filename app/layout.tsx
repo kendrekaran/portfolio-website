@@ -7,6 +7,7 @@ import { ThemeProvider } from '../components/theme-provider'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
 const title = 'Karan Kendre'
 const description = 'Design Engineer. Portfolio, projects, and contact information.'
+const ogImageUrl = `${siteUrl}/ogimage.png?v=1`
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,10 +35,11 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/ogimage.png',
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Karan Kendre – Portfolio',
+        type: 'image/png',
       },
     ],
   },
@@ -46,7 +48,8 @@ export const metadata: Metadata = {
     title,
     description,
     creator: '@karaan_dev',
-    images: ['/ogimage.png'],
+    site: '@karaan_dev',
+    images: [ogImageUrl],
   },
   icons: {
     icon: '/favicon.ico',

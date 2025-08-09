@@ -1,13 +1,17 @@
 // @ts-nocheck
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
+import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '../components/theme-provider'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
 const title = 'Karan Kendre'
 const description = 'Design Engineer. Portfolio, projects, and contact information.'
-const ogImageUrl = `${siteUrl}/ogimage.png?v=1`
+const ogImageUrl = 'https://www.karank.tech/ogimage.png'
+
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -75,6 +79,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.classList.add(theme);
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
@@ -94,7 +115,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

@@ -8,7 +8,6 @@ import { ThemeProvider } from '../components/theme-provider'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
 const title = 'Karan Kendre'
 const description = 'Design Engineer. Portfolio, projects, and contact information.'
-const ogImageUrl = 'https://www.karank.tech/ogimage.png'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -33,27 +32,26 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: '/',
+    url: siteUrl,
     siteName: 'Karan Kendre',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
+        url: "https://www.karank.tech/ogimage.png",
+        width: 1327,
+        height: 571,
         alt: 'Karan Kendre – Portfolio',
-        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title,
-    description,
+    title : "Karan Kendre – Portfolio",
+    description : "Design Engineer. Portfolio, projects, and contact information.",
     creator: '@karaan_dev',
     site: '@karaan_dev',
-    images: [ogImageUrl],
+    images: "https://www.karank.tech/ogimage.png",
   },
   icons: {
     icon: '/favicon.ico',

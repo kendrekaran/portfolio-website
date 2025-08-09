@@ -5,6 +5,7 @@ import { Mail, Menu, Moon, Sun } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -130,12 +131,14 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}
               className="rounded-full"
             >
-              <Button
-                className="h-10 rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base"
-                style={{ backgroundColor: "#f9f9f9" }}
-              >
-               View Resume
-              </Button>
+              <Link href="https://drive.google.com/file/d/1Jg_KOfcXxwdJtnDofV5ENkdUF46V5WCS/view?usp=drive_link" target="_blank">
+                <Button
+                  className="h-10 rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base"
+                  style={{ backgroundColor: "#f9f9f9" }}
+                >
+                View Resume
+                </Button>
+              </Link>
             </motion.a>
           </motion.div>
           {/* CTA row */}

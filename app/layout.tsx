@@ -76,42 +76,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (!theme) {
-                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
-                  document.documentElement.classList.add(theme);
-                } catch (e) {
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
-          }}
-        />
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Karan Kendre',
-              url: siteUrl,
-              jobTitle: 'Design Engineer',
-              email: 'mailto:karankendreg@gmail.com',
-              sameAs: [
-                'https://x.com/karaan_dev',
-                'https://linkedin.com/in/kendrekaran',
-                'https://github.com/kendrekaran',
-              ],
-            }),
-          }}
-        />
+      <head>
+  <meta property="og:title" content="Karan Kendre – Portfolio" />
+  <meta property="og:description" content="Design Engineer. Portfolio, projects, and contact information." />
+  <meta property="og:image" content="https://www.karank.tech/ogimage.png" />
+  <meta property="og:url" content="https://www.karank.tech" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Karan Kendre – Portfolio" />
+  <meta name="twitter:description" content="Design Engineer. Portfolio, projects, and contact information." />
+  <meta name="twitter:image" content="https://www.karank.tech/ogimage.png" />
+  <meta name="twitter:site" content="@karaan_dev" />
+  <meta name="twitter:creator" content="@karaan_dev" />
+</head>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

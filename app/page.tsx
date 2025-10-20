@@ -8,7 +8,7 @@ import GitHubSection from "@/components/github"
 
 export default function HomePage() {
   return (
-    <main className="min-h-svh bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(59,130,246,0.25),rgba(147,51,234,0.08)_60%,transparent_70%)] bg-background text-foreground scroll-smooth">
+    <main className="min-h-svh bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(59,130,246,0.25),rgba(147,51,234,0.08)_60%,transparent_70%)] bg-background text-foreground scroll-smooth overflow-x-hidden">
       <Suspense fallback={null}>
         <section id="home" aria-label="Home" className="scroll-mt-24">
           <Hero />

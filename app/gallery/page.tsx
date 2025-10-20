@@ -30,7 +30,7 @@ const videos = [
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-svh bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(59,130,246,0.25),rgba(147,51,234,0.08)_60%,transparent_70%)] bg-background text-foreground scroll-smooth ">
+    <main className="min-h-svh bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(59,130,246,0.25),rgba(147,51,234,0.08)_60%,transparent_70%)] bg-background text-foreground w-full scroll-smooth overflow-x-hidden">
       <section className="relative mx-auto flex min-h-[40svh] max-w-2xl items-center px-4 pt-8 sm:px-6 md:pt-16">
         <motion.div
           className="w-full"

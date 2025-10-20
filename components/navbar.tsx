@@ -40,20 +40,20 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path
 
   return (
-    <nav className=" max-w-2xl mx-auto w-screen z-10">
+    <nav className="max-w-2xl mx-auto w-full z-10">
       <motion.div
           variants={fadeUp}
           className="mb-6 flex items-center justify-between sm:mb-8"
         >
           <a
             href="mailto:karankendreg@gmail.com"
-            className="group inline-flex items-center gap-2 rounded-full text-xs text-muted-foreground sm:gap-3 sm:text-sm"
+            className="hidden sm:group sm:inline-flex items-center gap-2 rounded-full text-xs text-muted-foreground sm:gap-3 sm:text-sm"
           >
             <Mail className="h-4 w-4 text-[#4F46E5] sm:h-5 sm:w-5" aria-hidden="true" />
             <span className="hidden text-xl sm:inline">•</span>
             <span className="underline underline-offset-4">karankendreg@gmail.com</span>
           </a>
-           <div className="flex items-center gap-8">
+          <div className="flex items-start sm:items-center gap-2 sm:gap-8 ">
             <Link 
               href="/" 
               className={`text-sm font-medium transition-colors ${
@@ -75,19 +75,20 @@ export default function Navbar() {
               Gallery
             </Link>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle theme"
-            className='cursor-pointer'
-            onClick={handleThemeToggle}
-          >
-            {mounted && current === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Toggle theme"
+              className='cursor-pointer'
+              onClick={handleThemeToggle}
+            >
+              {mounted && current === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+          
         </motion.div>
     </nav>
   )

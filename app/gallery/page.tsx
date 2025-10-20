@@ -18,14 +18,14 @@ const fadeUp: Variants = {
 }
 
 const videos = [
+  'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960574/Screen_Recording_2025-10-20_at_5.12.10_PM_hhxcsg.mov',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960511/Screen_Recording_2025-10-20_at_5.11.27_PM_k3x7jn.mov',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760961218/f1_1Gzcj_SluAOCm_u6atdh.mp4',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760961159/sYNer7it7CENvbnW_v5qtss.mp4',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760961123/wqr-tdKElIK6kBwE_hdebgb.mp4',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760961099/ke6HfGzMNFUVF8Rg_g8lqme.mp4',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960827/Screen_Recording_2025-10-20_at_5.16.42_PM_pihq59.mov',
-  'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960684/Screen_Recording_2025-10-20_at_5.14.28_PM_hgd1ey.mov',
-  'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960574/Screen_Recording_2025-10-20_at_5.12.10_PM_hhxcsg.mov'
+  'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960684/Screen_Recording_2025-10-20_at_5.14.28_PM_hgd1ey.mov'
 ]
 
 export default function GalleryPage() {
@@ -64,6 +64,7 @@ export default function GalleryPage() {
                   autoPlay
                   loop
                   muted
+                  playsInline
                   preload="metadata"
                 />
               </div>

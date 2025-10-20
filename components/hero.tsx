@@ -1,11 +1,12 @@
 "use client"
 
 import { motion, type Variants } from "framer-motion"
-import { Mail, Menu, Moon, Sun } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import Navbar from "./navbar"
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -24,18 +25,14 @@ const fadeUp: Variants = {
 export default function Hero() {
   const { theme, setTheme, systemTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
+  
   useEffect(() => setMounted(true), [])
 
+
   const current = theme === "system" ? systemTheme : theme
-  function handleThemeToggle() {
-    const switchTheme = () => setTheme(current === "dark" ? "light" : "dark")
-    const anyDoc = document as unknown as { startViewTransition?: (cb: () => void) => void }
-    if (!anyDoc.startViewTransition) {
-      switchTheme()
-      return
-    }
-    anyDoc.startViewTransition(switchTheme)
-  }
+
+
   return (
     <section className="relative mx-auto flex min-h-[40svh] max-w-2xl items-center px-4 pt-8 sm:px-6 md:pt-16">
       <motion.div
@@ -44,32 +41,7 @@ export default function Hero() {
         animate="show"
         variants={container}
       >
-        <motion.div
-          variants={fadeUp}
-          className="mb-6 flex items-center justify-between sm:mb-8"
-        >
-          <a
-            href="mailto:karankendreg@gmail.com"
-            className="group inline-flex items-center gap-2 rounded-full text-xs text-muted-foreground sm:gap-3 sm:text-sm"
-          >
-            <Mail className="h-4 w-4 text-[#4F46E5] sm:h-5 sm:w-5" aria-hidden="true" />
-            <span className="hidden text-xl sm:inline">•</span>
-            <span className="underline underline-offset-4">karankendreg@gmail.com</span>
-          </a>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle theme"
-            onClick={handleThemeToggle}
-          >
-            {mounted && current === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
-        </motion.div>
-
+        <Navbar />
         <div className="max-w-4xl space-y-4">
           <div className="flex items-center gap-3">
             <motion.p
@@ -102,7 +74,7 @@ export default function Hero() {
             <span className="text-2xl font-semibold leading-tight text-foreground sm:text-4xl">{"Design Engineer"} </span>
             <span className="text-muted-foreground"> {" & "}</span>
             <div className="mt-4 flex items-center gap-4">
-              <span className="text-2xl font-semibold leading-tight text-[#4F46E5]/60 sm:text-4xl">{"Shit Poster"}</span>
+              <span className="text-2xl font-semibold leading-tight text-[#4F46E5]/60 sm:text-4xl">{"Frontend Geek"}</span>
               <motion.div variants={fadeUp}>
                 <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm">
                   <span

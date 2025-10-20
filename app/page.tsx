@@ -4,7 +4,7 @@ import Skills from "@/components/skills"
 import Experience from "@/components/experience"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
-import Footer from "@/components/footer"
+import GitHubSection from "@/components/github"
 
 export default function HomePage() {
   return (
@@ -16,6 +16,9 @@ export default function HomePage() {
         <section id="skills" aria-label="Skills" className="scroll-mt-24">
           <Skills />
         </section>
+        <section id="github" aria-label="github" className="scroll-mt-24">
+          <GitHubSection />
+        </section>
         <section id="projects" aria-label="Projects" className="scroll-mt-24">
           <Projects />
         </section>
@@ -26,7 +29,6 @@ export default function HomePage() {
           <Contact />
         </section>
       </Suspense>
-      <Footer />
     </main>
   )
 }

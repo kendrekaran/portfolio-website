@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '../components/theme-provider'
+import Navbar from '@/components/navbar'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
 const title = 'Karan Kendre'
@@ -91,7 +92,7 @@ export default function RootLayout({
   <meta name="twitter:creator" content="@karaan_dev" />
 </head>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen mb-12`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

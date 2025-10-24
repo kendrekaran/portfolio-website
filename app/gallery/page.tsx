@@ -18,6 +18,7 @@ const fadeUp: Variants = {
 }
 
 const videos = [
+  'https://res.cloudinary.com/dfm5hoz41/video/upload/v1761280963/Screen_Recording_2025-10-24_at_10.04.53_AM_chfi6s.mov',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960574/Screen_Recording_2025-10-20_at_5.12.10_PM_hhxcsg.mov',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760960511/Screen_Recording_2025-10-20_at_5.11.27_PM_k3x7jn.mov',
   'https://res.cloudinary.com/dfm5hoz41/video/upload/v1760961218/f1_1Gzcj_SluAOCm_u6atdh.mp4',

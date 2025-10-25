@@ -25,9 +25,26 @@ const fadeUp: Variants = {
 export default function Hero() {
   const { theme, setTheme, systemTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [codingHours, setCodingHours] = useState<string>("--")
   const pathname = usePathname()
   
   useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+    fetch("/api/coding-time")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.hours) {
+          setCodingHours(data.hours);
+        } else {
+          setCodingHours("0");
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to fetch coding time:", error);
+        setCodingHours("0");
+      });
+  }, [])
 
 
   const current = theme === "system" ? systemTheme : theme
@@ -72,23 +89,26 @@ export default function Hero() {
           >
             {"I’m a "}
             <span className="text-2xl font-semibold leading-tight text-foreground sm:text-4xl">{"Design Engineer"} </span>
-            <span className="text-muted-foreground"> {" & "}</span>
             <div className="mt-4 flex items-center gap-4">
-              <span className="text-2xl font-semibold leading-tight text-[#4F46E5]/60 sm:text-4xl">{"Frontend Geek"}</span>
-              <motion.div variants={fadeUp}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm">
-                  <span
-                    aria-hidden="true"
-                    className="inline-block h-2.5 w-2.5 rounded-full bg-[#34D399] shadow-[0_0_0_4px_rgba(52,211,153,0.15)]"
-                  />
-                  Open to work
-                </span>
-              </motion.div>
+                <motion.div variants={fadeUp}>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm shadow-inset">
+                    {codingHours} hours coded today
+                  </span>
+                </motion.div>
+                <motion.div variants={fadeUp}>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm shadow-inset">
+                    <span
+                      aria-hidden="true"
+                      className="inline-block h-2.5 w-2.5 rounded-full bg-[#34D399] shadow-[0_0_0_4px_rgba(52,211,153,0.15)]"
+                    />
+                    Open to work
+                  </span>
+                </motion.div>
             </div>
           </motion.div>
 
           <motion.p variants={fadeUp} className="max-w-xl text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            {"Feel free to explore my portfolio and reach out — I’d love to connect!"}
+            {"Feel free to explore my portfolio and reach out — I'd love to connect!"}
           </motion.p>
         </div>
 
@@ -105,7 +125,7 @@ export default function Hero() {
             >
               <Link href="https://drive.google.com/file/d/1Jg_KOfcXxwdJtnDofV5ENkdUF46V5WCS/view?usp=drive_link" target="_blank">
                 <Button
-                  className="h-10 rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base"
+                  className="h-10 rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base shadow-s"
                   style={{ backgroundColor: "#f9f9f9" }}
                 >
                 View Resume
@@ -125,7 +145,7 @@ export default function Hero() {
               className="rounded-full"
             >
               <Button
-                className="h-10 rounded-full px-5 text-sm text-[#F9FAFB] sm:h-12 sm:px-6 sm:text-base"
+                className="h-10 rounded-full px-5 text-sm text-[#F9FAFB] sm:h-12 sm:px-6 sm:text-base shadow-s"
                 style={{ backgroundColor: "#4F46E5" }}
               >
                 Book a call

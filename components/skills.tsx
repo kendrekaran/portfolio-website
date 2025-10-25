@@ -45,7 +45,7 @@ export default function Skills() {
                 {SKILLS.map((name) => (
                   <span
                     key={`${name}-${idx}`}
-                    className="rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground shadow-sm"
+                    className="rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground shadow-s"
                   >
                     {name}
                   </span>

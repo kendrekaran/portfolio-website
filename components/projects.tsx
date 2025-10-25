@@ -114,7 +114,7 @@ export default function Projects() {
                       {p.features?.length ? (
                         <div className="hidden flex-wrap gap-1 pt-1 sm:flex sm:gap-1.5">
                           {p.features.slice(0, 2).map((f) => (
-                            <span key={f} className="rounded-full border border-border bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground sm:px-2 sm:text-[11px]">{f}</span>
+                            <span key={f} className="rounded-full border border-border bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground sm:px-2 sm:text-[11px] shadow-s">{f}</span>
                           ))}
                         </div>
                       ) : null}

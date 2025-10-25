@@ -15,7 +15,7 @@ export default function Contact() {
               href="https://x.com/karaan_dev"
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 shadow-s"
             >
               <Twitter className="h-4 w-4" /> @karaan_dev
             </a>
@@ -23,7 +23,7 @@ export default function Contact() {
               href="https://linkedin.com/in/kendrekaran"
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 shadow-s"
             >
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
@@ -31,7 +31,7 @@ export default function Contact() {
               href="https://github.com/kendrekaran"
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 shadow-s"
             >
               <Github className="h-4 w-4" /> GitHub
             </a>

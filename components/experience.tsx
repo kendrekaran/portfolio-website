@@ -21,7 +21,7 @@ export default function Experience() {
               transition={{ duration: 0.4 }}
               className="relative"
             >
-              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-sky-400 ring-4 ring-sky-400/20" />
+              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-sky-400 ring-4 ring-sky-400/20 shadow-s" />
               <h3 className="text-sm font-medium leading-tight text-foreground">Frontend Developer — Keizer</h3>
               <p className="mt-0.5 text-xs text-muted-foreground">Jun 2025 – Present</p>
             </motion.div>
@@ -34,7 +34,7 @@ export default function Experience() {
               transition={{ duration: 0.4, delay: 0.05 }}
               className="relative"
             >
-              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-fuchsia-400 ring-4 ring-fuchsia-400/20" />
+              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-fuchsia-400 ring-4 ring-fuchsia-400/20 shadow-s" />
               <h3 className="text-sm font-medium leading-tight text-foreground">Freelancing — UI/UX Designer + Full Stack Developer, Remote</h3>
               <p className="mt-0.5 text-xs text-muted-foreground">Dec 2024 – May 2025</p>
             </motion.div>

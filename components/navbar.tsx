@@ -79,7 +79,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               aria-label="Toggle theme"
-              className='cursor-pointer'
+              className='cursor-pointer shadow-s'
               onClick={handleThemeToggle}
             >
               {mounted && current === "dark" ? (

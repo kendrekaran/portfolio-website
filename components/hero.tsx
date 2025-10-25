@@ -86,6 +86,21 @@ export default function Hero() {
     return date.toLocaleDateString('en-US', { weekday: 'long' })
   }
 
+  const formatHours = (hours: string) => {
+    const numHours = parseFloat(hours)
+    if (numHours === 0) return "0h"
+    if (numHours < 1) {
+      const minutes = Math.round(numHours * 60)
+      return `${minutes}m`
+    }
+    if (numHours === Math.floor(numHours)) {
+      return `${Math.floor(numHours)}h`
+    }
+    const wholeHours = Math.floor(numHours)
+    const minutes = Math.round((numHours - wholeHours) * 60)
+    return `${wholeHours}h ${minutes}m`
+  }
+
   const currentIndex = availableDates.indexOf(selectedDate)
   const canGoPrev = currentIndex > 0
   const canGoNext = currentIndex < availableDates.length - 1
@@ -170,7 +185,7 @@ export default function Hero() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="flex items-center"
                       >
-                        {codingHours} hours coded {getDayName(selectedDate)}
+                        {formatHours(codingHours)} coded {getDayName(selectedDate)}
                       </motion.div>
                     )}
                   </div>

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     // Check if API key exists
     if (!process.env.WAKATIME_API_KEY) {
@@ -11,12 +11,24 @@ export async function GET() {
       );
     }
 
-    // Get current date in YYYY-MM-DD format
-    const today = new Date().toISOString().split("T")[0];
-    console.log("Fetching data for date:", today);
+    // Get date from query parameters or use current date
+    const { searchParams } = new URL(request.url);
+    const requestedDate = searchParams.get('date');
+    const targetDate = requestedDate || new Date().toISOString().split("T")[0];
+    
+    // Validate date format (YYYY-MM-DD)
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!dateRegex.test(targetDate)) {
+      return NextResponse.json(
+        { error: "Invalid date format. Use YYYY-MM-DD" },
+        { status: 400 }
+      );
+    }
+    
+    console.log("Fetching data for date:", targetDate);
 
     const res = await fetch(
-      `https://wakatime.com/api/v1/users/current/durations?date=${today}`,
+      `https://wakatime.com/api/v1/users/current/durations?date=${targetDate}`,
       {
         headers: {
           Authorization: `Basic ${Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString('base64')}`,
@@ -34,7 +46,7 @@ export async function GET() {
       // If unauthorized, return 0 hours instead of error
       if (res.status === 401) {
         return NextResponse.json({
-          date: today,
+          date: targetDate,
           hours: "0.00",
           timezone: "UTC",
           error: "WakaTime API key invalid or expired"
@@ -57,7 +69,7 @@ export async function GET() {
     const totalHours = (totalSeconds / 3600).toFixed(2);
 
     return NextResponse.json({
-      date: today,
+      date: targetDate,
       hours: totalHours,
       timezone: data.timezone,
     });

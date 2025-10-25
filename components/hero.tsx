@@ -26,25 +26,69 @@ export default function Hero() {
   const { theme, setTheme, systemTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [codingHours, setCodingHours] = useState<string>("--")
+  const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split("T")[0])
+  const [isLoading, setIsLoading] = useState(false)
+  const [weekData, setWeekData] = useState<Record<string, string>>({})
+  const [availableDates, setAvailableDates] = useState<string[]>([])
   const pathname = usePathname()
   
   useEffect(() => setMounted(true), [])
 
+  const fetchWeekData = async () => {
+    setIsLoading(true)
+    try {
+      const response = await fetch('/api/coding-time-week')
+      const data = await response.json()
+      if (data.data) {
+        setWeekData(data.data)
+        const dates = Object.keys(data.data).sort()
+        setAvailableDates(dates)
+        
+        // Set current day's hours immediately
+        const today = new Date().toISOString().split("T")[0]
+        setCodingHours(data.data[today] || "0")
+      }
+    } catch (error) {
+      console.error("Failed to fetch week data:", error)
+      setCodingHours("0")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   useEffect(() => {
-    fetch("/api/coding-time")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.hours) {
-          setCodingHours(data.hours);
-        } else {
-          setCodingHours("0");
-        }
-      })
-      .catch((error) => {
-        console.error("Failed to fetch coding time:", error);
-        setCodingHours("0");
-      });
+    fetchWeekData()
   }, [])
+
+  const navigateDate = (direction: 'prev' | 'next') => {
+    const currentIndex = availableDates.indexOf(selectedDate)
+    
+    if (direction === 'prev' && currentIndex > 0) {
+      const newDate = availableDates[currentIndex - 1]
+      setSelectedDate(newDate)
+      setCodingHours(weekData[newDate] || "0")
+    } else if (direction === 'next' && currentIndex < availableDates.length - 1) {
+      const newDate = availableDates[currentIndex + 1]
+      setSelectedDate(newDate)
+      setCodingHours(weekData[newDate] || "0")
+    }
+  }
+
+  const getDayName = (dateString: string) => {
+    const date = new Date(dateString)
+    const today = new Date()
+    const todayString = today.toISOString().split("T")[0]
+    const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000).toISOString().split("T")[0]
+    
+    if (dateString === todayString) return 'today'
+    if (dateString === yesterday) return 'yesterday'
+    
+    return date.toLocaleDateString('en-US', { weekday: 'long' })
+  }
+
+  const currentIndex = availableDates.indexOf(selectedDate)
+  const canGoPrev = currentIndex > 0
+  const canGoNext = currentIndex < availableDates.length - 1
 
 
   const current = theme === "system" ? systemTheme : theme
@@ -91,9 +135,45 @@ export default function Hero() {
             <span className="text-2xl font-semibold leading-tight text-foreground sm:text-4xl">{"Design Engineer"} </span>
             <div className="mt-4 flex items-center gap-4">
                 <motion.div variants={fadeUp}>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm shadow-inset">
-                    {codingHours} hours coded today
-                  </span>
+                  <div 
+                    className="relative inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm shadow-inset cursor-pointer hover:bg-muted/80 transition-all duration-300 ease-out"
+                    onClick={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect()
+                      const clickX = e.clientX - rect.left
+                      const width = rect.width
+                      
+                      if (clickX < width / 2 && canGoPrev) {
+                        // Left side clicked - go to previous day
+                        navigateDate('prev')
+                      } else if (clickX >= width / 2 && canGoNext) {
+                        // Right side clicked - go to next day
+                        navigateDate('next')
+                      }
+                    }}
+                  >
+                    <div className="absolute left-0 top-0 h-full w-1/2 cursor-pointer" />
+                    <div className="absolute right-0 top-0 h-full w-1/2 cursor-pointer" />
+                    {isLoading ? (
+                      <div className="flex items-center gap-2 h-5.5">
+                        <div className="flex space-x-1">
+                          <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:-0.3s]"></div>
+                          <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:-0.15s]"></div>
+                          <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground animate-bounce"></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <motion.div
+                        key={selectedDate}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="flex items-center"
+                      >
+                        {codingHours} hours coded {getDayName(selectedDate)}
+                      </motion.div>
+                    )}
+                  </div>
                 </motion.div>
                 <motion.div variants={fadeUp}>
                   <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-2 py-1 text-xs text-muted-foreground sm:px-3 sm:py-1.5 sm:text-sm shadow-inset">

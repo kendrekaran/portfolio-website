@@ -41,12 +41,28 @@ export default function Hero() {
       const data = await response.json()
       if (data.data) {
         setWeekData(data.data)
-        const dates = Object.keys(data.data).sort()
+        
+        const today = new Date().toISOString().split("T")[0]
+        const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().split("T")[0]
+        
+        const todayHours = parseFloat(data.data[today] || "0")
+        const yesterdayHours = parseFloat(data.data[yesterday] || "0")
+        
+        // Filter out today if it has less than 2 hours of coding time
+        let dates = Object.keys(data.data).sort()
+        if (todayHours < 2) {
+          dates = dates.filter(date => date !== today)
+        }
         setAvailableDates(dates)
         
-        // Set current day's hours immediately
-        const today = new Date().toISOString().split("T")[0]
-        setCodingHours(data.data[today] || "0")
+        // If today's coding time is less than 2 hours, show yesterday's data
+        if (todayHours < 2 && yesterdayHours > 0) {
+          setSelectedDate(yesterday)
+          setCodingHours(data.data[yesterday] || "0")
+        } else {
+          setSelectedDate(today)
+          setCodingHours(data.data[today] || "0")
+        }
       }
     } catch (error) {
       console.error("Failed to fetch week data:", error)

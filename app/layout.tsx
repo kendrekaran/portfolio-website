@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '../components/theme-provider'
 import Navbar from '@/components/navbar'
+import { Analytics } from '@vercel/analytics/next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
 const title = 'Karan Kendre'
@@ -75,9 +76,21 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       <head>
       <head>
+  <style dangerouslySetInnerHTML={{ __html: `
+    html, body { 
+      scrollbar-width: none !important; 
+      -ms-overflow-style: none !important; 
+      overflow-x: hidden !important; 
+    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { 
+      display: none !important; 
+      width: 0 !important; 
+      height: 0 !important; 
+    }
+  ` }} />
   <meta property="og:title" content="Karan Kendre – Portfolio" />
   <meta property="og:description" content="Design Engineer. Portfolio, projects, and contact information." />
   <meta property="og:image" content="https://www.karank.tech/ogimage.png" />
@@ -92,10 +105,11 @@ export default function RootLayout({
   <meta name="twitter:creator" content="@karaan_dev" />
 </head>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen mb-12`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen mb-12 overflow-x-hidden`} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )

@@ -5,6 +5,7 @@ import Experience from "@/components/experience"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import GitHubSection from "@/components/github"
+import Gallery from "@/components/gallery"
 
 export default function HomePage() {
   return (
@@ -21,6 +22,9 @@ export default function HomePage() {
         </section>
         <section id="projects" aria-label="Projects" className="scroll-mt-24">
           <Projects />
+        </section>
+        <section id="gallery" aria-label="Gallery" className="scroll-mt-24">
+          <Gallery />
         </section>
         <section id="experience" aria-label="Experience" className="scroll-mt-24">
           <Experience />

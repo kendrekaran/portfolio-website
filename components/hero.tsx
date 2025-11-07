@@ -219,7 +219,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p variants={fadeUp} className="max-w-xl text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            {"Feel free to explore my portfolio and reach out — I'd love to connect!"}
+            {"Feel free to explore my portfolio and reach out I'd love to connect!"}
           </motion.p>
         </div>
 
@@ -236,7 +236,7 @@ export default function Hero() {
             >
               <Link href="https://drive.google.com/file/d/1Jg_KOfcXxwdJtnDofV5ENkdUF46V5WCS/view?usp=drive_link" target="_blank">
                 <Button
-                  className="h-10 rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base shadow-s"
+                  className="h-10 cursor-pointer rounded-full px-5 text-sm text-[#000000] sm:h-12 sm:px-6 sm:text-base shadow-s"
                   style={{ backgroundColor: "#f9f9f9" }}
                 >
                 View Resume
@@ -256,7 +256,7 @@ export default function Hero() {
               className="rounded-full"
             >
               <Button
-                className="h-10 rounded-full px-5 text-sm text-[#F9FAFB] sm:h-12 sm:px-6 sm:text-base shadow-s"
+                className="h-10 cursor-pointer rounded-full px-5 text-sm text-[#F9FAFB] sm:h-12 sm:px-6 sm:text-base shadow-s"
                 style={{ backgroundColor: "#4F46E5" }}
               >
                 Book a call

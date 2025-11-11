@@ -184,7 +184,7 @@ export default function Hero() {
                   >
                     <div className="absolute left-0 top-0 h-full w-1/2 cursor-pointer" />
                     <div className="absolute right-0 top-0 h-full w-1/2 cursor-pointer" />
-                    {isLoading ? (
+                    {/* {isLoading ? ( */}
                       <div className="flex items-center gap-2 h-5.5">
                         <div className="flex space-x-1">
                           <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground animate-bounce [animation-delay:-0.3s]"></div>
@@ -192,7 +192,7 @@ export default function Hero() {
                           <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground animate-bounce"></div>
                         </div>
                       </div>
-                    ) : (
+                    {/* ) : (
                       <motion.div
                         key={selectedDate}
                         initial={{ opacity: 0, y: 10 }}
@@ -203,7 +203,7 @@ export default function Hero() {
                       >
                         {formatHours(codingHours)} coded {getDayName(selectedDate)}
                       </motion.div>
-                    )}
+                    )} */}
                   </div>
                 </motion.div>
                 <motion.div variants={fadeUp}>

@@ -19,7 +19,7 @@ const SKILLS = [
 
 export default function Skills() {
   return (
-    <div className="py-16">
+    <div className="py-12">
       <SectionHeading
         title="Skills"
         subtitle="Technologies and tools I work with."

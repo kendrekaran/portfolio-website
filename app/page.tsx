@@ -6,28 +6,26 @@ import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import GitHubSection from "@/components/github"
 import Gallery from "@/components/gallery"
+import DesignCopies from "@/components/design-copies"
 
 export default function HomePage() {
   return (
-    <main className="min-h-svh bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(59,130,246,0.25),rgba(147,51,234,0.08)_60%,transparent_70%)] bg-background text-foreground scroll-smooth overflow-x-hidden">
+    <main className="min-h-svh bg-background text-foreground scroll-smooth overflow-x-hidden">
       <Suspense fallback={null}>
         <section id="home" aria-label="Home" className="scroll-mt-24">
           <Hero />
         </section>
-        <section id="skills" aria-label="Skills" className="scroll-mt-24">
-          <Skills />
-        </section>
         <section id="github" aria-label="github" className="scroll-mt-24">
           <GitHubSection />
         </section>
-        <section id="projects" aria-label="Projects" className="scroll-mt-24">
-          <Projects />
-        </section>
-        <section id="gallery" aria-label="Gallery" className="scroll-mt-24">
-          <Gallery />
-        </section>
         <section id="experience" aria-label="Experience" className="scroll-mt-24">
           <Experience />
+        </section>
+        <section id="design-copies" aria-label="Design Copies" className="scroll-mt-24">
+          <DesignCopies />
+        </section>
+        <section id="projects" aria-label="Projects" className="scroll-mt-24">
+          <Projects />
         </section>
         <section id="contact" aria-label="Contact" className="scroll-mt-24">
           <Contact />

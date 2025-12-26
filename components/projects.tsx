@@ -1,16 +1,22 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
+import { ExternalLink, Github } from "lucide-react"
 import SectionHeading from "./section-heading"
-import { ExternalLink, Github } from 'lucide-react'
 
 type Project = {
   title: string
   stack: string
   features: string[]
   image: string
-  live?: string
-  repo?: string
+  live: string
+  repo: string
+}
+
+function getInitials(title: string): string {
+  // Extract first letter of the title
+  return title.charAt(0).toUpperCase()
 }
 
 const projects: Project[] = [
@@ -67,75 +73,65 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="">
+    <div className="py-12">
       <SectionHeading
         title="Projects"
         subtitle="Selected work featuring full-stack apps, UI polish, and performance."
       />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
-        <div className="rounded-xl border border-border bg-card">
-          <div className="divide-y divide-border">
-            {projects.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.05 }}
-                className="group"
-              >
-                <div className="p-2 transition-colors hover:bg-muted sm:p-3">
-                  <div className="flex flex-wrap items-start gap-2 sm:flex-nowrap sm:items-center sm:gap-3">
-                    {p.image ? (
-                      <div className="h-14 w-20 shrink-0 overflow-hidden rounded-md border border-border bg-muted sm:h-16 sm:w-28">
-                        <img
-                          src={p.image}
-                          alt={`${p.title} preview`}
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : null}
-                    <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
-                      <h3 className="truncate text-[13px] font-medium text-foreground sm:text-sm">{p.title}</h3>
-                      <p className="truncate text-[11px] text-muted-foreground sm:text-xs">{p.stack}</p>
-                      {p.live ? (
-                        <p className="hidden truncate text-[11px] text-muted-foreground sm:block">
-                          <a
-                            href={p.live}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            className="underline underline-offset-4 hover:text-foreground"
-                          >
-                            {p.live}
-                          </a>
-                        </p>
-                      ) : null}
-                      {p.features?.length ? (
-                        <div className="hidden flex-wrap gap-1 pt-1 sm:flex sm:gap-1.5">
-                          {p.features.slice(0, 2).map((f) => (
-                            <span key={f} className="rounded-full border border-border bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground sm:px-2 sm:text-[11px] shadow-s">{f}</span>
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
-                    <div className=" flex w-full shrink-0 items-center justify-end gap-2 sm:mt-0 sm:w-auto sm:ml-auto sm:self-start">
-                      {p.live ? (
-                        <a href={p.live} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 text-[12px] text-muted-foreground underline underline-offset-4 hover:text-foreground sm:text-xs" aria-label={`${p.title} live demo`}>
-                          Live <ExternalLink className="h-4 w-4" />
-                        </a>
-                      ) : null}
-                      {p.repo ? (
-                        <a href={p.repo} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 text-[12px] text-muted-foreground underline underline-offset-4 hover:text-foreground sm:text-xs" aria-label={`${p.title} repository`}>
-                          Code <Github className="h-4 w-4" />
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
+        <div className="space-y-0">
+          {projects.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.05 }}
+              className="group"
+            >
+              {i > 0 && (
+                <div className="border-t border-dotted border-border" />
+              )}
+              <div className="flex items-center gap-4 py-4">
+                {/* Initials */}
+                <div className="h-12 w-12 shrink-0 flex items-center justify-center rounded-lg bg-white border border-border/50 shadow-s">
+                  <span className="text-xl font-medium text-foreground">{getInitials(p.title)}</span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                
+                {/* Title and Description */}
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-sm font-medium text-foreground mb-0.5">{p.title}</h3>
+                  <p className="text-xs text-muted-foreground">{p.stack}</p>
+                </div>
+                
+                {/* Links */}
+                <div className="shrink-0 flex items-center gap-2">
+                  {p.live && (
+                    <Link
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-border bg-muted/50 hover:bg-muted transition-colors"
+                      aria-label={`View ${p.title} live`}
+                    >
+                      <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                    </Link>
+                  )}
+                  {p.repo && (
+                    <Link
+                      href={p.repo}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-border bg-muted/50 hover:bg-muted transition-colors"
+                      aria-label={`View ${p.title} on GitHub`}
+                    >
+                      <Github className="h-3.5 w-3.5 text-muted-foreground" />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

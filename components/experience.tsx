@@ -3,42 +3,84 @@
 import { motion } from "framer-motion"
 import SectionHeading from "./section-heading"
 
+type ExperienceItem = {
+  title: string
+  description: string
+  status: "Live" | "Soon"
+  statusColor?: string
+}
+
+function getInitials(title: string): string {
+  // Extract first letter of the company/organization name
+  // For "Design Engineer at Keizer Works" -> "K" (from Keizer)
+  // For "Freelancing as a Designer Engineer" -> "F"
+  
+  // Look for "at" or "—" to find company name
+  const atIndex = title.toLowerCase().indexOf(" at ")
+  const dashIndex = title.indexOf(" — ")
+  
+  if (atIndex !== -1) {
+    // Extract word after "at"
+    const afterAt = title.substring(atIndex + 4).trim()
+    return afterAt.charAt(0).toUpperCase()
+  } else if (dashIndex !== -1) {
+    // Extract word after "—"
+    const afterDash = title.substring(dashIndex + 3).trim()
+    return afterDash.charAt(0).toUpperCase()
+  }
+  
+  // Fallback to first letter
+  return title.charAt(0).toUpperCase()
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    title: "Design Engineer at Keizer Works",
+    description: "Jun 2025 – Present",
+    status: "Live",
+    statusColor: "bg-teal-500",
+  },
+  {
+    title: "Freelancing as a Designer Engineer",
+    description: "Dec 2024 – May 2025",
+    status: "Live",
+    statusColor: "bg-teal-500",
+  },
+]
+
 export default function Experience() {
   return (
-    <div className="py-16">
+    <div className="py-12">
       <SectionHeading title="Experience" subtitle="Recent roles" />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
-        <div className="relative pl-10">
-          {/* vertical path */}
-          <div aria-hidden className="pointer-events-none absolute left-4 h-14 mt-2 top-0 bottom-0 w-px bg-border/50" />
-
-          <div className="space-y-6">
-            {/* Keizer */}
+        <div className="space-y-0">
+          {experiences.map((exp, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              key={exp.title}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="relative"
+              transition={{ duration: 0.45, delay: i * 0.05 }}
+              className="group"
             >
-              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-sky-400 ring-4 ring-sky-400/20 shadow-s" />
-              <h3 className="text-sm font-medium leading-tight text-foreground">Frontend Developer — Keizer</h3>
-              <p className="mt-0.5 text-xs text-muted-foreground">Jun 2025 – Present</p>
+              {i > 0 && (
+                <div className="border-t border-dotted border-border" />
+              )}
+              <div className="flex items-center gap-4 py-4">
+                
+                <div className="h-12 w-12 shrink-0 flex items-center justify-center rounded-lg bg-white border border-border/50 shadow-s">
+                  <span className="text-xl font-medium text-foreground">{getInitials(exp.title)}</span>
+                </div>
+                
+                
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-sm font-medium text-foreground mb-0.5">{exp.title}</h3>
+                  <p className="text-xs text-muted-foreground">{exp.description}</p>
+                </div>
+                
+              </div>
             </motion.div>
-
-            {/* Freelancing */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              className="relative"
-            >
-              <span aria-hidden className="absolute -left-6 top-2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-fuchsia-400 ring-4 ring-fuchsia-400/20 shadow-s" />
-              <h3 className="text-sm font-medium leading-tight text-foreground">Freelancing — UI/UX Designer + Full Stack Developer, Remote</h3>
-              <p className="mt-0.5 text-xs text-muted-foreground">Dec 2024 – May 2025</p>
-            </motion.div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

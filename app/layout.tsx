@@ -1,18 +1,29 @@
 // @ts-nocheck
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Newsreader } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '../components/theme-provider'
 import Navbar from '@/components/navbar'
 import { Analytics } from '@vercel/analytics/next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karank.tech'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karaan.me'
 const title = 'Karan Kendre'
 const description = 'Design Engineer. Portfolio, projects, and contact information.'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const newsreader = Newsreader({ 
+  variable: '--font-newsreader', 
+  subsets: ['latin'],
+  style: 'italic',
+  weight: '400'
+})
+
+const newsreaderNormal = Newsreader({ 
+  variable: '--font-newsreader-normal', 
+  subsets: ['latin'],
+  weight: '400'
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -40,7 +51,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: "https://www.karank.tech/ogimage.png",
+        url: "https://www.karaan.me/ogimage.png",
         width: 1327,
         height: 571,
         alt: 'Karan Kendre – Portfolio',
@@ -53,7 +64,7 @@ export const metadata: Metadata = {
     description : "Design Engineer. Portfolio, projects, and contact information.",
     creator: '@karaan_dev',
     site: '@karaan_dev',
-    images: "https://www.karank.tech/ogimage.png",
+    images: "https://www.karaan.me/ogimage.png",
   },
   icons: {
     icon: '/favicon.ico',
@@ -64,10 +75,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -93,22 +101,20 @@ export default function RootLayout({
   ` }} />
   <meta property="og:title" content="Karan Kendre – Portfolio" />
   <meta property="og:description" content="Design Engineer. Portfolio, projects, and contact information." />
-  <meta property="og:image" content="https://www.karank.tech/ogimage.png" />
-  <meta property="og:url" content="https://www.karank.tech" />
+  <meta property="og:image" content="https://www.karaan.me/ogimage.png" />
+  <meta property="og:url" content="https://www.karaan.me" />
   <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Karan Kendre – Portfolio" />
   <meta name="twitter:description" content="Design Engineer. Portfolio, projects, and contact information." />
-  <meta name="twitter:image" content="https://www.karank.tech/ogimage.png" />
+  <meta name="twitter:image" content="https://www.karaan.me/ogimage.png" />
   <meta name="twitter:site" content="@karaan_dev" />
   <meta name="twitter:creator" content="@karaan_dev" />
 </head>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen mb-12 overflow-x-hidden`} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${newsreaderNormal.variable} antialiased min-h-screen mb-12 overflow-x-hidden`} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        {children}
         <Analytics />
       </body>
     </html>

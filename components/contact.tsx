@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function Contact() {
   return (
-    <div className="">
+    <div className="py-12">
       <SectionHeading title="Contact" subtitle="Let’s build something great together." />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
         <div className="space-y-4 rounded-xl border border-border bg-card p-4 sm:p-5">

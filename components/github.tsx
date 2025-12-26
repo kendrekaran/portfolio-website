@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { Activity } from 'react-github-calendar';
 import SectionHeading from './section-heading';
@@ -13,6 +13,7 @@ const GitHubCalendar = dynamic(() => import('react-github-calendar'), {
 
 function GithubCalender() {
   const [totalCount, setTotalCount] = useState(0);
+  const [todayHours, setTodayHours] = useState<string>("--");
 
   const processContributions = useCallback((contributions: Activity[]) => {
     setTimeout(() => {
@@ -26,11 +27,27 @@ function GithubCalender() {
     return contributions.slice(91, 365);
   }, []);
 
+  useEffect(() => {
+    fetch("/api/coding-time")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.hours) {
+          setTodayHours(data.hours);
+        } else {
+          setTodayHours("0");
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to fetch coding time:", error);
+        setTodayHours("0");
+      });
+  }, []);
+
   return (
-    <div className="pb-16">
+    <div className="py-12">
       <SectionHeading 
         title="GitHub" 
-        subtitle="My contributions and activity on GitHub." 
+        subtitle={`${todayHours} hours coded today`} 
       />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
         <motion.div
@@ -49,11 +66,13 @@ function GithubCalender() {
               display: none;
             }
           `}</style>
-          <GitHubCalendar
-            username="kendrekaran"
-            transformData={processContributions}
-            totalCount={totalCount}
-          />
+          <div className="relative">
+            <GitHubCalendar
+              username="kendrekaran"
+              transformData={processContributions}
+              totalCount={totalCount}
+            />
+          </div>
         </motion.div>
       </div>
     </div>

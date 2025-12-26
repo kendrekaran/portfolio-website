@@ -35,7 +35,7 @@ export default function Gallery() {
   const previewItems = defaultVideos.slice(0, 6)
 
   return (
-    <div className="py-10 md:py-16">
+    <div className="py-12">
       <SectionHeading
         title="Gallery"
         subtitle="A collection of my work and projects."

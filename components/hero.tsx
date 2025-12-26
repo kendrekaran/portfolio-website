@@ -42,8 +42,15 @@ export default function Hero() {
 
         <motion.div 
           variants={fadeUp}
-          className="max-w-2xl space-y-4 text-md leading-relaxed text-muted-foreground/80 sm:text-lg"
+          className="max-w-2xl  text-md leading-relaxed text-muted-foreground/80 sm:text-lg"
         >
+          <motion.p 
+          variants={fadeUp}
+          className="text-lg text-muted-foreground"
+        >
+          Karan Kendre • I am from India
+        </motion.p>
+
           <p className="font-normal">
             Currently Frontend Developer at{" "}
             <Link 

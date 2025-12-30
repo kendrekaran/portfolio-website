@@ -21,6 +21,19 @@ function getInitials(title: string): string {
 
 const projects: Project[] = [
   {
+    title: "Clip Path Library",
+    stack: "Nextjs, Tailwind CSS, Framer Motion",
+    features: [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Clip Path",
+    ],
+    image: "https://i.pinimg.com/736x/a8/fa/41/a8fa4190768a2674a401d37b1a7ef95a.jpg",
+    live: "https://clip-path-library.vercel.app/",
+    repo: "https://github.com/kendrekaran/clip-path-library",
+  },
+  {
     title: "Eleweight",
     stack: "React, Node.js, Express, MongoDB",
     features: [
@@ -34,23 +47,11 @@ const projects: Project[] = [
     repo: "https://github.com/kendrekaran/Eleweight_Frontend",
   },
   {
-    title: "Cloud Clipper",
-    stack: "Next.js, Tailwind CSS, SnapVideo API",
-    features: [
-      "Next.js",
-      "Tailwind CSS",
-      "SnapVideo API",
-    ],
-    image: "https://i.pinimg.com/736x/8b/59/bf/8b59bfa204cb3972f2b917706e4ca3a4.jpg",
-    live: "https://cloudclipper.vercel.app/",
-    repo: "https://github.com/kendrekaran/video_downloader",
-  },
-  {
     title: "takeUforward Landing Page",
     stack: "Next.js, Tailwind CSS",
     features: ["Next.js", "Tailwind CSS", "Testimonials"],
     image: "https://i.pinimg.com/736x/35/cf/7b/35cf7be3fa726d4fdc4d150276264ed9.jpg",
-    live: "https://takeuforward.karank.tech/",
+    live: "https://takeyuforward.vercel.app/",
     repo: "https://github.com/kendrekaran/takeyouforward",
   },
   {

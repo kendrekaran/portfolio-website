@@ -8,7 +8,7 @@ import { Analytics } from '@vercel/analytics/next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karaan.me'
 const defaultTitle = 'Karan Kendre – Design Engineer & Frontend Developer'
-const defaultDescription = 'I\'m Karan Kendre, a Design Engineer & Frontend Developer from India. Currently building at Keizer. Passionate about polished interfaces, seamless UX, and animations that feel natural. View my projects, gallery, and get in touch.'
+const defaultDescription = 'I\'m Karan Kendre, a Design Engineer & Frontend Developer from India. Recently at Kargul Studio. Passionate about polished interfaces, seamless UX, and animations that feel natural. View my projects, gallery, and get in touch.'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     'Portfolio',
     'UI Engineer',
     'India Frontend Developer',
+    'Kargul Studio',
     'Keizer Works',
     'karaan_dev',
   ],
@@ -121,8 +122,8 @@ export default function RootLayout({
               "jobTitle": "Design Engineer & Frontend Developer",
               "worksFor": {
                 "@type": "Organization",
-                "name": "Keizer",
-                "url": "https://keizerworks.com"
+                "name": "Kargul Studio",
+                "url": "https://kargul.studio"
               },
               "nationality": {
                 "@type": "Country",

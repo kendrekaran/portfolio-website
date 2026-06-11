@@ -52,13 +52,13 @@ export default function Hero() {
         </motion.p>
 
           <p className="font-normal">
-            Currently Frontend Developer at{" "}
+            Recently Frontend Developer at{" "}
             <Link 
-              href="https://keizerworks.com" 
+              href="https://kargul.studio" 
               target="_blank"
               className="text-foreground decoration-muted-foreground/40 underline underline-offset-[6px] hover:decoration-foreground transition-colors font-medium"
             >
-              Keizer
+              Kargul Studio
             </Link>
             . Previously Freelance for various national and international clients. I&apos;m passionate about building polished interfaces and crafting seamless user experiences, with a philosophy that the best animations are those that feel so natural they go entirely unnoticed.
           </p>

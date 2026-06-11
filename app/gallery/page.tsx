@@ -148,6 +148,28 @@ export default function GalleryPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="mt-10 flex justify-center"
+          >
+            <Button
+              asChild
+              className="h-10 cursor-pointer rounded-full px-5 text-sm text-[#F9FAFB] sm:h-12 sm:px-6 sm:text-base shadow-s"
+              style={{ backgroundColor: "#4F46E5" }}
+            >
+              <a
+                href="https://x.com/karankendre/highlights"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View More
+              </a>
+            </Button>
+          </motion.div>
         </div>
       </section>
 

@@ -60,7 +60,7 @@ export default function Hero() {
             >
               Kargul Studio
             </Link>
-            . Previously Freelance for various national and international clients. I also create developer-focused content on X — growing @karaan_dev to 13K followers with 80M+ views on AI and frontend topics. I&apos;m passionate about building polished interfaces and crafting seamless user experiences, with a philosophy that the best animations are those that feel so natural they go entirely unnoticed.
+            . Previously Freelance for various national and international clients. I also create developer-focused content on X, growing @karaan_dev to 13K followers with 80M+ views on AI and frontend topics. I&apos;m passionate about building polished interfaces and crafting seamless user experiences, with a philosophy that the best animations are those that feel so natural they go entirely unnoticed.
           </p>
         </motion.div>
       </motion.div>

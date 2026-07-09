@@ -9,7 +9,7 @@ export default function Contact() {
       <SectionHeading title="Contact" subtitle="Let’s build something great together." />
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
         <div className="space-y-4 rounded-xl border border-border bg-card p-4 sm:p-5">
-          <p className="text-sm text-muted-foreground">Prefer DMs? Reach me on X — 13K followers, 80M+ views on AI & dev content. I&apos;m quick to respond.</p>
+          <p className="text-sm text-muted-foreground">Prefer DMs? Reach me on X. 13K followers, 80M+ views on AI & dev content. I&apos;m quick to respond.</p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href="https://x.com/karaan_dev"

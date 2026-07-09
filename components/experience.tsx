@@ -52,6 +52,12 @@ const experiences: ExperienceItem[] = [
     status: "Live",
     statusColor: "bg-teal-500",
   },
+  {
+    title: "AI & Developer Content — X (@karaan_dev)",
+    description: "2024 – Present · 13K followers · 80M+ views",
+    status: "Live",
+    statusColor: "bg-teal-500",
+  },
 ]
 
 export default function Experience() {

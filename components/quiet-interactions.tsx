@@ -1,4 +1,5 @@
 "use client"
+import { ArrowUpRightIcon } from "@/components/arrow-up-right-icon"
 import { useEffect, useRef, useState, type ReactNode, type MouseEvent } from "react"
 import Link from "next/link"
 
@@ -28,11 +29,11 @@ export function WorkDialog({ children }: { children: ReactNode }) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.current.close()
   }
   return <>
-    <button className="quiet-pill" onClick={() => { dialog.current?.showModal(); setOpen(true) }}>See work <span aria-hidden="true">↗</span></button>
+    <button className="quiet-pill" onClick={() => { dialog.current?.showModal(); setOpen(true) }}>See work <span aria-hidden="true"><ArrowUpRightIcon /></span></button>
     <dialog ref={dialog} className="quiet-dialog" aria-labelledby="work-title" onClose={() => setOpen(false)} onClick={closeOnBackdrop}>
       <header className="dialog-header"><div><h2 id="work-title">Selected work</h2><p>Things I’ve designed and built.</p></div><button className="quiet-pill" onClick={() => dialog.current?.close()} aria-label="Close selected work">Close <span aria-hidden="true">×</span></button></header>
       {children}
-      <Link href="/projects" className="quiet-text-link" onClick={() => dialog.current?.close()}>Open the full projects page ↗</Link>
+      <Link href="/projects" className="quiet-text-link" onClick={() => dialog.current?.close()}>Open the full projects page <ArrowUpRightIcon /></Link>
     </dialog>
   </>
 }

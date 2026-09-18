@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "@/components/arrow-up-right-icon"
 import type { Metadata } from "next"
 import { QuietHeader, QuietFooter } from "@/components/quiet-shell"
 
@@ -31,6 +32,6 @@ const links = [
 export default function GalleryPage() {
   return <div className="quiet-page quiet-wide"><QuietHeader current="gallery" /><main id="main-content">
     <div className="quiet-page-heading"><span className="quiet-eyebrow">After hours</span><h1>A little design practice.</h1><p>I recreate interesting designs in code in my free time.<br />Some of these designs are by other people; the code is mine.</p></div>
-    <div className="quiet-gallery-grid">{images.map((image, index) => <a className="quiet-gallery-item" href={links[index]} target="_blank" rel="noopener noreferrer" key={image}><img src={image} alt={`Design recreation ${index + 1}`} width="600" height="375" loading="lazy" /><span className="quiet-gallery-caption"><span>Experiment {String(index + 1).padStart(2, "0")}</span><span>View on X ↗</span></span></a>)}</div>
+    <div className="quiet-gallery-grid">{images.map((image, index) => <a className="quiet-gallery-item" href={links[index]} target="_blank" rel="noopener noreferrer" key={image}><img src={image} alt={`Design recreation ${index + 1}`} width="600" height="375" loading="lazy" /><span className="quiet-gallery-caption"><span>Experiment {String(index + 1).padStart(2, "0")}</span><span>View on X <ArrowUpRightIcon /></span></span></a>)}</div>
   </main><QuietFooter /></div>
 }

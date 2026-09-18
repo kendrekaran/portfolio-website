@@ -17,6 +17,7 @@ html { scroll-behavior: smooth; }
 .quiet-header nav > a[aria-current="page"] { text-decoration: underline; text-decoration-color: #bbb; }
 .quiet-small { font-size: 13px; }
 .quiet-muted { color: var(--quiet-muted) !important; }
+.quiet-arrow-icon { display: inline-block; vertical-align: -.125em; flex-shrink: 0; }
 .quiet-pill { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #ddd; border-radius: 30px; padding: 7px 14px; background: #fff; font: 14px/1.6 Helvetica, Arial, sans-serif; text-decoration: none; cursor: pointer; color: #333; white-space: nowrap; min-height: 38px; transition: background .18s, border-color .18s; }
 .quiet-pill:hover { background: #f7f7f7; border-color: #bbb; color: #333 !important; }
 .quiet-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--quiet-muted); font-size: 13px; }

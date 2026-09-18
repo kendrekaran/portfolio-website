@@ -1,29 +1,12 @@
-// @ts-nocheck
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
-import { Geist, Geist_Mono, Newsreader } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/navbar'
+import './quiet.css'
 import { Analytics } from '@vercel/analytics/next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karaan.me'
 const defaultTitle = 'Karan Kendre – Design Engineer & Frontend Developer'
 const defaultDescription = 'I\'m Karan Kendre, a Design Engineer & Frontend Developer from India. Recently at Kargul Studio. Passionate about polished interfaces, seamless UX, and animations that feel natural. View my projects, gallery, and get in touch.'
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
-const newsreader = Newsreader({ 
-  variable: '--font-newsreader', 
-  subsets: ['latin'],
-  style: 'italic',
-  weight: '400'
-})
-
-const newsreaderNormal = Newsreader({ 
-  variable: '--font-newsreader-normal', 
-  subsets: ['latin'],
-  weight: '400'
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -80,7 +63,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   themeColor: '#ffffff',
 }
 
@@ -90,20 +72,8 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+    <html lang="en">
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `
-          html, body { 
-            scrollbar-width: none !important; 
-            -ms-overflow-style: none !important; 
-            overflow-x: hidden !important; 
-          }
-          html::-webkit-scrollbar, body::-webkit-scrollbar { 
-            display: none !important; 
-            width: 0 !important; 
-            height: 0 !important; 
-          }
-        ` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,11 +90,6 @@ export default function RootLayout({
                 "https://github.com/kendrekaran"
               ],
               "jobTitle": "Design Engineer & Frontend Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Kargul Studio",
-                "url": "https://kargul.studio"
-              },
               "nationality": {
                 "@type": "Country",
                 "name": "India"
@@ -135,7 +100,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${newsreaderNormal.variable} antialiased min-h-screen mb-12 overflow-x-hidden`} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <body>
+        <a href="#main-content" className="quiet-skip">Skip to content</a>
         {children}
         <Analytics />
       </body>

@@ -7,3 +7,6 @@ node_modules/
 .bun/
 .env
 .env.production.local/
+.vercel/
+*.tsbuildinfo
+.vercel

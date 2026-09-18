@@ -1,36 +1,38 @@
-import { Suspense } from "react"
-import Hero from "@/components/hero"
-import Skills from "@/components/skills"
-import Experience from "@/components/experience"
-import Projects from "@/components/projects"
-import Contact from "@/components/contact"
-import GitHubSection from "@/components/github"
-import Gallery from "@/components/gallery"
-import DesignCopies from "@/components/design-copies"
+import Link from "next/link"
+import { QuietHeader, QuietFooter } from "@/components/quiet-shell"
+import { IndiaClock, WorkDialog } from "@/components/quiet-interactions"
+import QuietProjects from "@/components/quiet-projects"
+import { projects } from "@/lib/portfolio"
 
 export default function HomePage() {
-  return (
-    <main className="min-h-svh bg-background text-foreground scroll-smooth overflow-x-hidden">
-      <Suspense fallback={null}>
-        <section id="home" aria-label="Home" className="scroll-mt-24">
-          <Hero />
-        </section>
-        <section id="github" aria-label="github" className="scroll-mt-24">
-          <GitHubSection />
-        </section>
-        <section id="experience" aria-label="Experience" className="scroll-mt-24">
-          <Experience />
-        </section>
-        <section id="design-copies" aria-label="Design Copies" className="scroll-mt-24">
-          <DesignCopies />
-        </section>
-        <section id="projects" aria-label="Projects" className="scroll-mt-24">
-          <Projects />
-        </section>
-        <section id="contact" aria-label="Contact" className="scroll-mt-24">
-          <Contact />
-        </section>
-      </Suspense>
+  return <div className="quiet-page">
+    <QuietHeader />
+    <main id="main-content">
+      <h1>Karan Kendre</h1>
+      <div className="quiet-meta"><span>Design Engineer & Frontend Developer</span><IndiaClock /></div>
+      <section className="quiet-intro" aria-label="About me">
+        <p>I’m a Design Engineer.<br /><em>A developer who can design.</em></p>
+        <details className="quiet-about"><summary>A little more about me <span aria-hidden="true">↗</span></summary><p>I’m from India. I’ve worked with national and international clients, and I spend my free time recreating interesting designs in code. You can find those experiments in my <Link href="/gallery">gallery</Link>.</p></details>
+        <p>Recently a Frontend Developer at <a href="https://kargul.studio" target="_blank" rel="noopener noreferrer">Kargul Studio</a>. Previously a Design Engineer at Keizer Works, and a freelancer working with clients around the world.</p>
+        <p>I care about polished interfaces and seamless user experiences. The best animations feel so natural they go entirely unnoticed.</p>
+        <p>I also create developer-focused content on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">X, as @karaan_dev</a> — sharing what I learn about AI and frontend development with 13K followers, and over 80M views.</p>
+        <p>Here’s a little of what I’ve been up to.</p>
+      </section>
+      <section id="experience" aria-labelledby="experience-title" className="quiet-experience">
+        <h2 id="experience-title" className="quiet-section-label">Along the way</h2>
+        <details className="quiet-article"><summary>Frontend Development / Kargul Studio<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Jan 2026 – May 2026</p><p>Frontend Developer at <a href="https://kargul.studio" target="_blank" rel="noopener noreferrer">Kargul Studio ↗</a></p></div></details>
+        <details className="quiet-article"><summary>Design Engineering / Keizer Works<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Jun 2025 – Jan 2026</p><p>Design Engineer at Keizer Works.</p></div></details>
+        <details className="quiet-article"><summary>Independent / Freelance<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Dec 2024 – May 2025</p><p>Freelance design engineering for national and international clients.</p></div></details>
+        <details className="quiet-article"><summary>Writing / AI & Frontend<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">2024 – Present</p><p>Developer-focused content on AI and frontend topics. 13K followers and 80M+ views on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">@karaan_dev ↗</a></p></div></details>
+      </section>
+      <section id="projects" aria-labelledby="projects-title" className="quiet-work">
+        <div className="quiet-section-top"><h2 id="projects-title" className="quiet-section-label">Things I’m building</h2><Link href="/projects" className="quiet-small quiet-muted">All projects ↗</Link></div>
+        <p className="quiet-muted">Tools for making things, from the first frame to the final little detail.</p>
+        <ul className="quiet-project-index">{projects.slice(0, 5).map(project => <li key={project.name}><a href={project.url} target="_blank" rel="noopener noreferrer"><span>{project.name}</span><span className="project-index-description">{project.category}</span><span aria-hidden="true">↗</span></a></li>)}</ul>
+        <div className="quiet-actions"><WorkDialog><QuietProjects /></WorkDialog><Link href="/gallery" className="quiet-small quiet-muted">The design gallery ↗</Link></div>
+      </section>
+      <aside className="quiet-desk-note"><h2>A small corner of my world.</h2><p className="quiet-muted">The keyboard, tools, and little things that live on my desk.</p><Link className="quiet-text-link" href="/desk">Take a look around my desk <span aria-hidden="true">↗</span></Link></aside>
     </main>
-  )
+    <QuietFooter />
+  </div>
 }

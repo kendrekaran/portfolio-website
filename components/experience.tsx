@@ -54,7 +54,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     title: "AI & Developer Content on X (@karaan_dev)",
-    description: "2024 – Present · 13K followers · 80M+ views",
+    description: "2024 – Present · Generated over 100M impressions",
     status: "Live",
     statusColor: "bg-teal-500",
   },

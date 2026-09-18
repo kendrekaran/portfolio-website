@@ -15,7 +15,7 @@ export default function HomePage() {
         <details className="quiet-about"><summary>A little more about me <span aria-hidden="true">↗</span></summary><p>I’m from India. I’ve worked with national and international clients, and I spend my free time recreating interesting designs in code. You can find those experiments in my <Link href="/gallery">gallery</Link>.</p></details>
         <p>Recently a Frontend Developer at <a href="https://kargul.studio" target="_blank" rel="noopener noreferrer">Kargul Studio</a>. Previously a Design Engineer at Keizer Works, and a freelancer working with clients around the world.</p>
         <p>I care about polished interfaces and seamless user experiences. The best animations feel so natural they go entirely unnoticed.</p>
-        <p>I also create developer-focused content on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">X, as @karaan_dev</a> — sharing what I learn about AI and frontend development with 13K followers, and over 80M views.</p>
+        <p>I also create developer-focused content on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">X, as @karaan_dev</a> — sharing what I learn about AI and frontend development. My content has generated over 100M impressions.</p>
         <p>Here’s a little of what I’ve been up to.</p>
       </section>
       <section id="experience" aria-labelledby="experience-title" className="quiet-experience">
@@ -23,7 +23,7 @@ export default function HomePage() {
         <details className="quiet-article"><summary>Frontend Development / Kargul Studio<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Jan 2026 – May 2026</p><p>Frontend Developer at <a href="https://kargul.studio" target="_blank" rel="noopener noreferrer">Kargul Studio ↗</a></p></div></details>
         <details className="quiet-article"><summary>Design Engineering / Keizer Works<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Jun 2025 – Jan 2026</p><p>Design Engineer at Keizer Works.</p></div></details>
         <details className="quiet-article"><summary>Independent / Freelance<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">Dec 2024 – May 2025</p><p>Freelance design engineering for national and international clients.</p></div></details>
-        <details className="quiet-article"><summary>Writing / AI & Frontend<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">2024 – Present</p><p>Developer-focused content on AI and frontend topics. 13K followers and 80M+ views on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">@karaan_dev ↗</a></p></div></details>
+        <details className="quiet-article"><summary>Writing / AI & Frontend<span aria-hidden="true">⌄</span></summary><div className="quiet-detail"><p className="quiet-small">2024 – Present</p><p>My developer-focused content on AI and frontend topics has generated over 100M impressions on <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">@karaan_dev ↗</a></p></div></details>
       </section>
       <section id="projects" aria-labelledby="projects-title" className="quiet-work">
         <div className="quiet-section-top"><h2 id="projects-title" className="quiet-section-label">Things I’m building</h2><Link href="/projects" className="quiet-small quiet-muted">All projects ↗</Link></div>

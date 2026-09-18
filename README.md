@@ -4,7 +4,7 @@ The existing karaan.me Next.js project, adapted to Folio Supply's Quiet template
 
 - `/`: biography, experience, featured projects, work dialog, and contact links.
 - `/projects`: all nine projects, including five featured tools.
-- `/desk`: ten owned gadgets and desk accessories with the original Amazon links.
+- `/desk`: owned gadgets, desk accessories, and furniture with the original Amazon links.
 - `/gallery`: existing design recreations and their X posts.
 
 ## Develop and verify

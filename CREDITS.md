@@ -6,4 +6,4 @@ Biography, experience, portrait, gallery images, and existing project links were
 
 Project preview images come from the Open Graph images published by Karan's Folio Supply, Framecraft, Filament, Cutroom, and Clip Path Library sites.
 
-Desk product names, variants, and images were checked against the ten Amazon product pages supplied by Karan on 19 September 2026. The original short links are preserved in `lib/portfolio.ts`. Product photography belongs to the respective brands or sellers. No product prices or availability claims are published.
+Desk product names, variants, and images were checked against the Amazon product pages supplied by Karan. The original short links are preserved in `lib/portfolio.ts`. Product photography belongs to the respective brands or sellers. No product prices or availability claims are published.

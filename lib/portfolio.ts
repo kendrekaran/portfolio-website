@@ -12,7 +12,7 @@ export const projects = [
   { name: "HY-Krox", category: "Agency landing page", description: "An agency website built with Next.js and Tailwind CSS.", url: "https://hy-krox.vercel.app/", image: null, repo: "https://github.com/kendrekaran/hy-krox" },
 ]
 
-// Product variants verified against the ten Amazon links supplied by Karan.
+// Product variants verified against the Amazon links supplied by Karan.
 export const deskItems = [
   { name: "YUNZII C75", category: "Keyboard", detail: "75% wireless mechanical keyboard. Purple, with Candy switches.", url: "https://amzn.in/d/0el2qXZP", image: "/desk/keyboard.jpg" },
   { name: "Logitech MX Master 3S", category: "Mouse", detail: "Bluetooth Edition in Graphite. Quiet clicks and an ultra-fast scroll wheel.", url: "https://amzn.in/d/0h52ZERC", image: "/desk/mouse.jpg" },
@@ -24,4 +24,5 @@ export const deskItems = [
   { name: "SPEED RGB Desk Mat", category: "Desk mat", detail: "A 78 × 30 cm black desk mat with 14 lighting modes and a non-slip base.", url: "https://amzn.in/d/0fq8dXOZ", image: "/desk/mat.jpg" },
   { name: "Kreo Kast", category: "Microphone", detail: "A white dynamic microphone with USB and XLR connectivity.", url: "https://amzn.in/d/03rdPRh8", image: "/desk/mic.jpg" },
   { name: "Dekorly Eucalyptus Plants", category: "Something green", detail: "A pair of small artificial potted plants for the desk.", url: "https://amzn.in/d/08gcIks6", image: "/desk/plants.jpg" },
+  { name: "Green Soul Blade", category: "Chair", detail: "A black and white gaming chair with a lumbar massager, reclining back, and retractable footrest.", url: "https://amzn.in/d/07wUdOs3", image: "/desk/chair.jpg" },
 ]

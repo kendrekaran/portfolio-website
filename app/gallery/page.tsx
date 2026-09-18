@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   title: "Gallery",
   description: "Design recreations and frontend experiments by Karan Kendre.",
   alternates: { canonical: "/gallery" },
-  openGraph: { title: "Gallery · Karan Kendre", description: "Design recreations and frontend experiments.", url: "/gallery", images: ["/opengraph-image"] },
+  openGraph: { title: "Gallery · Karan Kendre", description: "Design recreations and frontend experiments.", url: "/gallery" },
+  twitter: { card: "summary_large_image", title: "Gallery · Karan Kendre", description: "Design recreations and frontend experiments.", creator: "@karankendre", site: "@karankendre", images: [{ url: "/gallery/opengraph-image", alt: "Karan Kendre’s gallery – design recreations and experiments" }] },
 }
 const images = [
   "https://res.cloudinary.com/dyyndll5a/image/upload/v1766776708/Screenshot_2025-12-27_at_12.45.09_AM_hubyyk.png",

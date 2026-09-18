@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   title: "My desk",
   description: "The gadgets, tools, and furniture in Karan Kendre’s everyday setup, from my keyboard and monitor to my chair and the plants beside them.",
   alternates: { canonical: "/desk" },
-  openGraph: { title: "My desk · Karan Kendre", description: "The gadgets, tools, and little things I own.", url: "/desk", images: ["/opengraph-image"] },
+  openGraph: { title: "My desk · Karan Kendre", description: "The gadgets, tools, and little things I own.", url: "/desk" },
+  twitter: { card: "summary_large_image", title: "My desk · Karan Kendre", description: "The gadgets, tools, and little things I own.", creator: "@karankendre", site: "@karankendre", images: [{ url: "/desk/opengraph-image", alt: "Karan Kendre’s desk – keyboard, mouse, and chair" }] },
 }
 
 export default function DeskPage() {

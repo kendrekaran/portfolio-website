@@ -32,7 +32,6 @@ export default function HomePage() {
         <ul className="quiet-project-index">{projects.slice(0, 5).map(project => <li key={project.name}><a href={project.url} target="_blank" rel="noopener noreferrer"><span>{project.name}</span><span className="project-index-description">{project.category}</span><span aria-hidden="true">↗</span></a></li>)}</ul>
         <div className="quiet-actions"><WorkDialog><QuietProjects /></WorkDialog><Link href="/gallery" className="quiet-small quiet-muted">The design gallery ↗</Link></div>
       </section>
-      <aside className="quiet-desk-note"><h2>A small corner of my world.</h2><p className="quiet-muted">The keyboard, tools, and little things that live on my desk.</p><Link className="quiet-text-link" href="/desk">Take a look around my desk <span aria-hidden="true">↗</span></Link></aside>
     </main>
     <QuietFooter />
   </div>

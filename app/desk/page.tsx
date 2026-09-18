@@ -23,6 +23,6 @@ export default function DeskPage() {
       </article>)}</div>
       <p className="desk-endnote">A few practical things. A few just because.</p>
     </main>
-    <QuietFooter />
+    <QuietFooter showDesk={false} />
   </div>
 }

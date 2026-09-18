@@ -23,7 +23,5 @@ export function QuietFooter() {
     </nav>
     <a className="quiet-email" href={`mailto:${email}`}>{email}</a>
     <div className="quiet-signature">Karan Kendre</div>
-    <div className="quiet-colophon"><span>© {new Date().getFullYear()}</span><span>Made with care, in India.</span></div>
-    <p className="quiet-credit">Built on <a href="https://folio-supply.vercel.app/portfolios/quiet" target="_blank" rel="noopener noreferrer">Quiet by Folio Supply</a>.<br />UI inspired by <a href="https://www.jordiplz.com" target="_blank" rel="noopener noreferrer">Jordi Plz</a>.</p>
   </footer>
 }

@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
 export default function XPage() {
-  redirect('https://x.com/karaan_dev')
+  redirect('https://x.com/karankendre')
 }

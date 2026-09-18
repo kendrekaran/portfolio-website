@@ -17,7 +17,7 @@ export function QuietFooter() {
     <a className="quiet-pill quiet-dark-pill" href={`mailto:${email}`}>Let’s build together <span aria-hidden="true">↗</span></a>
     <p>Thoughtful interfaces. Clear words. A little curiosity.</p>
     <nav className="quiet-socials" aria-label="Find me online">
-      <a href="https://x.com/karaan_dev" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a>
+      <a href="https://x.com/karankendre" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a>
       <a href="https://linkedin.com/in/kendrekaran" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       <a href="https://github.com/kendrekaran" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </nav>

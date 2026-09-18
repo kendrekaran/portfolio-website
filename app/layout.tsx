@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'India Design Engineer and Ghostwriter',
     'Kargul Studio',
     'Keizer Works',
-    'karaan_dev',
+    'karankendre',
   ],
   authors: [{ name: 'Karan Kendre', url: 'https://github.com/kendrekaran' }],
   creator: 'Karan Kendre',
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: defaultTitle,
     description: defaultDescription,
-    creator: '@karaan_dev',
-    site: '@karaan_dev',
+    creator: '@karankendre',
+    site: '@karankendre',
     images: "/opengraph-image",
   },
   icons: {
@@ -85,7 +85,7 @@ export default function RootLayout({
               "url": "https://www.karaan.me",
               "image": "https://i.pinimg.com/736x/48/9b/5a/489b5aa4d508ef3e18e9eecdfc50a63d.jpg",
               "sameAs": [
-                "https://x.com/karaan_dev",
+                "https://x.com/karankendre",
                 "https://linkedin.com/in/kendrekaran",
                 "https://github.com/kendrekaran"
               ],

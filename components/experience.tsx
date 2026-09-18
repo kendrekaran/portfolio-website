@@ -59,7 +59,7 @@ const experiences: ExperienceItem[] = [
     statusColor: "bg-teal-500",
   },
   {
-    title: "AI & Technology Content on X (@karaan_dev)",
+    title: "AI & Technology Content on X (@karankendre)",
     description: "2024 – Present · Generated over 100M impressions",
     status: "Live",
     statusColor: "bg-teal-500",

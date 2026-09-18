@@ -60,7 +60,7 @@ export default function Hero() {
             >
               Kargul Studio
             </Link>
-            , at Keizer Works, and with freelance clients around the world. I&apos;ve written and created posts for major AI companies, turning technical ideas into clear, engaging content. I also share what I learn about AI and technology on X as @karaan_dev. My content has generated over 100M impressions. I care about polished interfaces, seamless user experiences, and animations that feel natural.
+            , at Keizer Works, and with freelance clients around the world. I&apos;ve written and created posts for major AI companies, turning technical ideas into clear, engaging content. I also share what I learn about AI and technology on X as @karankendre. My content has generated over 100M impressions. I care about polished interfaces, seamless user experiences, and animations that feel natural.
           </p>
         </motion.div>
       </motion.div>

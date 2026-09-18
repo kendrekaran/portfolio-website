@@ -18,14 +18,14 @@ const images = [
   "https://res.cloudinary.com/dyyndll5a/image/upload/v1766776708/Screenshot_2025-12-27_at_12.46.17_AM_y7t5sm.png",
 ]
 const links = [
-  "https://x.com/karaan_dev/status/1963635642220384682?s=20",
-  "https://x.com/karaan_dev/status/1998690676175941795?s=20",
-  "https://x.com/karaan_dev/status/1999073373155102957?s=20",
-  "https://x.com/karaan_dev/status/1926528888475156950?s=204",
-  "https://x.com/karaan_dev/status/1953532877565784571?s=20",
-  "https://x.com/karaan_dev/status/1985301165651960247?s=20",
-  "https://x.com/karaan_dev/status/1986780707340103881?s=20",
-  "https://x.com/karaan_dev/status/1921491459275989037?s=20",
+  "https://x.com/karankendre/status/1963635642220384682?s=20",
+  "https://x.com/karankendre/status/1998690676175941795?s=20",
+  "https://x.com/karankendre/status/1999073373155102957?s=20",
+  "https://x.com/karankendre/status/1926528888475156950?s=204",
+  "https://x.com/karankendre/status/1953532877565784571?s=20",
+  "https://x.com/karankendre/status/1985301165651960247?s=20",
+  "https://x.com/karankendre/status/1986780707340103881?s=20",
+  "https://x.com/karankendre/status/1921491459275989037?s=20",
 ]
 export default function GalleryPage() {
   return <div className="quiet-page quiet-wide"><QuietHeader current="gallery" /><main id="main-content">

@@ -12,12 +12,12 @@ export default function Contact() {
           <p className="text-sm text-muted-foreground">Prefer DMs? Reach me on X. My AI & dev content has generated over 100M impressions. I&apos;m quick to respond.</p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="https://x.com/karaan_dev"
+              href="https://x.com/karankendre"
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 shadow-s"
             >
-              <Twitter className="h-4 w-4" /> @karaan_dev
+              <Twitter className="h-4 w-4" /> @karankendre
             </a>
             <a
               href="https://linkedin.com/in/kendrekaran"

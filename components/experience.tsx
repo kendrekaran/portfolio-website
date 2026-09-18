@@ -35,7 +35,7 @@ function getInitials(title: string): string {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Frontend Developer at Kargul Studio",
+    title: "Development at Kargul Studio",
     description: "Jan 2026 – May 2026",
     status: "Live",
     statusColor: "bg-teal-500",
@@ -53,7 +53,13 @@ const experiences: ExperienceItem[] = [
     statusColor: "bg-teal-500",
   },
   {
-    title: "AI & Developer Content on X (@karaan_dev)",
+    title: "Ghostwriting for AI Companies",
+    description: "Written and created posts for major AI companies",
+    status: "Live",
+    statusColor: "bg-teal-500",
+  },
+  {
+    title: "AI & Technology Content on X (@karaan_dev)",
     description: "2024 – Present · Generated over 100M impressions",
     status: "Live",
     statusColor: "bg-teal-500",

@@ -5,8 +5,8 @@ import './quiet.css'
 import { Analytics } from '@vercel/analytics/next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karaan.me'
-const defaultTitle = 'Karan Kendre – Design Engineer & Frontend Developer'
-const defaultDescription = 'I\'m Karan Kendre, a Design Engineer & Frontend Developer from India. Recently at Kargul Studio. Passionate about polished interfaces, seamless UX, and animations that feel natural. View my projects, gallery, and get in touch.'
+const defaultTitle = 'Karan Kendre – Design Engineer & Ghostwriter'
+const defaultDescription = 'I\'m Karan Kendre, a Design Engineer & Ghostwriter from India. I build polished interfaces and have written and created posts for major AI companies. My content has generated over 100M impressions.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   keywords: [
     'Karan Kendre',
     'Design Engineer',
-    'Frontend Developer',
-    'Frontend Engineer',
+    'Ghostwriter',
+    'AI Content Writer',
     'React Developer',
     'Next.js Developer',
     'Portfolio',
     'UI Engineer',
-    'India Frontend Developer',
+    'India Design Engineer and Ghostwriter',
     'Kargul Studio',
     'Keizer Works',
     'karaan_dev',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: "https://www.karaan.me/ogimage.png",
-        width: 1327,
-        height: 571,
-        alt: 'Karan Kendre – Portfolio',
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: defaultTitle,
       },
     ],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: defaultDescription,
     creator: '@karaan_dev',
     site: '@karaan_dev',
-    images: "https://www.karaan.me/ogimage.png",
+    images: "/opengraph-image",
   },
   icons: {
     icon: '/favicon.ico',
@@ -89,13 +89,13 @@ export default function RootLayout({
                 "https://linkedin.com/in/kendrekaran",
                 "https://github.com/kendrekaran"
               ],
-              "jobTitle": "Design Engineer & Frontend Developer",
+              "jobTitle": "Design Engineer & Ghostwriter",
               "nationality": {
                 "@type": "Country",
                 "name": "India"
               },
-              "description": "Design Engineer & Frontend Developer from India, passionate about polished interfaces and seamless user experiences.",
-              "knowsAbout": ["Frontend Development", "React", "Next.js", "UI/UX Design", "TypeScript", "Tailwind CSS"],
+              "description": defaultDescription,
+              "knowsAbout": ["Design Engineering", "Ghostwriting", "AI Content", "React", "Next.js", "UI/UX Design", "TypeScript", "Tailwind CSS"],
             })
           }}
         />

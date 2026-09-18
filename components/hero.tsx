@@ -37,7 +37,7 @@ export default function Hero() {
           className=" text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-5xl"
           style={{ fontFamily: 'var(--font-newsreader-normal)' }}
         >
-          I&apos;m a Designer Engineer. <br/> A Developer who can Design.
+          I&apos;m a Design Engineer & Ghostwriter. <br/> I build interfaces and put ideas into words.
         </motion.h1>
 
         <motion.div 
@@ -52,7 +52,7 @@ export default function Hero() {
         </motion.p>
 
           <p className="font-normal">
-            Recently Frontend Developer at{" "}
+            I&apos;ve worked at{" "}
             <Link 
               href="https://kargul.studio" 
               target="_blank"
@@ -60,7 +60,7 @@ export default function Hero() {
             >
               Kargul Studio
             </Link>
-            . Previously Freelance for various national and international clients. I also create developer-focused content on X as @karaan_dev. My content on AI and frontend topics has generated over 100M impressions. I&apos;m passionate about building polished interfaces and crafting seamless user experiences, with a philosophy that the best animations are those that feel so natural they go entirely unnoticed.
+            , at Keizer Works, and with freelance clients around the world. I&apos;ve written and created posts for major AI companies, turning technical ideas into clear, engaging content. I also share what I learn about AI and technology on X as @karaan_dev. My content has generated over 100M impressions. I care about polished interfaces, seamless user experiences, and animations that feel natural.
           </p>
         </motion.div>
       </motion.div>

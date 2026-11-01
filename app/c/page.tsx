@@ -2,6 +2,6 @@ import { redirect } from 'next/navigation'
 
 export default function CPage() {
   redirect(
-    'https://liveakdai.slivcdn.com/hls/live/2119931/cricodi_3010/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793383153~acl=/*~id=29335231065501951857285214797177~hmac=af45997928ad8b77ad2d1205339b966f94899c8e4e91ff0a93533373e7290e52',
+    'https://sonymtmnew.akamaized.net/hls/live/2119931/cricodi_0111/ENG/master.m3u8?hdnea=exp=1793555170~acl=/*~id=05171743256484589574171739692373~hmac=302da17e59bc6d5f4a76354194ea8d041fd64fa0c1794d4d95099766c3987980',
   )
 }
